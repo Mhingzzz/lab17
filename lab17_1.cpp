@@ -44,14 +44,18 @@ void showData(double *a, int N, int M){
 
 void randData(double *a,int N,int M){
     for(int i = 0; i < N*M; i++){
-        a[i] = rand() % 100 / 100.00;
+        a[i] = rand() % 101 / 100.00;
     }
 }
 
 void findRowSum(const double *a, double *b, int N, int M){
 	
 	int sum = 0;
-
+	for (int j = 0; j < N; j++)
+	{
+		b[j] = 0;
+	}
+	
     for (int i = 0; i < N*M ; i++)
 	{
 		b[sum] += *(a+i);
@@ -65,6 +69,10 @@ void findRowSum(const double *a, double *b, int N, int M){
 void findColSum(const double *a, double *b, int N, int M){
 
 	int sum = 0;
+	for (int j = 0; j < M; j++)
+	{
+		b[j] = 0;
+	}
 	for (int i = 0; i < N*M; i++)
 	{
 		if (i % M == 0)
